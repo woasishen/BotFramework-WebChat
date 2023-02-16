@@ -4,12 +4,22 @@ import ReactWebChat, { createDirectLine } from 'botframework-webchat';
 
 function ChatComponent({ styleOptions }) {
   const [directLine, setDirectLine] = useState();
-
   useMemo(async () => {
-    const res = await fetch('https://webchat-mockbot.azurewebsites.net/directline/token', { method: 'POST' });
+    const res = await fetch('https://localhost:44383/v3/directline/tokens/generate',
+    {
+      method: 'POST',
+      headers:
+      {
+        'Authorization': 'Bearer mIcpw2jTx1U.WnrxFaDmmvHQyK4vMDPmMaaZ7d8UG0LvQ-hkeZHRVPw'
+      }
+    });
     const { token } = await res.json();
 
-    setDirectLine(createDirectLine({ token }));
+    setDirectLine(createDirectLine({
+      domain: 'https://localhost:44383/v3/directline',
+      token: token,
+      webSocket: false
+    }));
   }, []);
 
   return (
