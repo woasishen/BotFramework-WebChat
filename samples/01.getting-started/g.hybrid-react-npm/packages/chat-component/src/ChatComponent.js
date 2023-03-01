@@ -10,7 +10,7 @@ function ChatComponent({ styleOptions }) {
       method: 'POST',
       headers:
       {
-        'Authorization': 'Bearer mIcpw2jTx1U.WnrxFaDmmvHQyK4vMDPmMaaZ7d8UG0LvQ-hkeZHRVPw'
+        'Authorization': 'Bearer Ux95HT3DQ7I.-YVYaK_w3o1CgwSrInXfvPzz_-E9QnvOGWFUcYamQpM'
       }
     });
     const { token } = await res.json();
